@@ -1,0 +1,28 @@
+backend:
+  name: github
+  branch: main # Change this to your default branch
+  repo: Jagdip07/Astro
+
+media_folder: "public/uploads" # Where uploaded images are stored
+public_folder: "/uploads"
+
+collections:
+  - name: "blog" # Collection name
+    label: "Blog Posts"
+    folder: "src/content/blog" # Path to blog posts
+    create: true
+    slug: "{{slug}}" # URL format
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "Admin" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    folder: "src/content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
